@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import './App.css';
-function App() {
-  const [nowTime, setNowTime] = useState(new Date().toLocaleTimeString('en-GB'));
 
+function App() {
   return (
-    <div>
-      <div>타이머!</div>
-      <div>{nowTime}</div>
-    </div>
+    <>
+      <div className="container"></div>
+    </>
   );
 }
 
