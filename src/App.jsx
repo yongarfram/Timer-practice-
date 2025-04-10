@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Clock from './Clock';
 import './App.css';
 
 /**
@@ -17,9 +19,18 @@ import './App.css';
  * - Clock 컴포넌트: componentRunning 상태가 true일 때만 렌더링됩니다.
  */
 function App() {
+  const [isShowClock, setIsShowClock] = useState(false);
+
   return (
     <>
-      <div className="container"></div>
+      <div className="container flex">
+        <button className={`startStop ${isShowClock ? 'active' : ''}`} onClick={() => setIsShowClock(!isShowClock)}>
+          {isShowClock ? `컴포넌트정지` : `컴포넌트시작`}
+        </button>
+      </div>
+      <div className="flex clockContainer">
+        <div className="flex clock">{isShowClock && <Clock />}</div>
+      </div>
     </>
   );
 }
